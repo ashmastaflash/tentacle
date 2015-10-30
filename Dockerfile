@@ -12,16 +12,17 @@ RUN apt-get update \
     dh-autoreconf \
     libevent-dev \
     git \
+    httperf \
     cphalo
 
-RUN cd /opt/ \
-    && git clone https://github.com/httperf/httperf \
-    && mkdir httperf/build \
-    && cd httperf \
-    && autoreconf -i \
-    && cd build \
-    && ../configure --enable-idleconn --enable-debug  \
-    && make \
-    && make install
+#RUN cd /opt/ \
+#    && git clone https://github.com/httperf/httperf \
+#    && mkdir httperf/build \
+#    && cd httperf \
+#    && autoreconf -i \
+#    && cd build \
+#    && ../configure --enable-idleconn --enable-debug  \
+#    && make \
+#    && make install
 
 COPY ./scripts/*sh /root/
